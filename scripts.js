@@ -23,27 +23,73 @@
  *
  */
 
-const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
-  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-
 // This is an array of strings (Weeknd ALbums)
 let albums = [
   {
     title: "House of Ballons",
     year: 2011,
     imageURL: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/31/18/fa/3118fab0-90ea-2ae5-cf6c-bc64054ab9e3/21UMGIM21449.rgb.jpg/1200x1200bb.jpg"
-    description: "A debut mixtape blending R&B with a dark atmospheric vibe. The mystery behind The Weeknd will be uncovered."
+    description: "A debut mixtape blending R&B with a dark atmospheric vibe. The mystery behind The Weeknd will be uncovered. The, and the story begins."
+    songs: ["House of Balloons", "The Morning", "Twenty-Eight"]
+  },
+  {
+    title: "Thursday",
+    year: 2011,
+    imageURL: "https://m.media-amazon.com/images/I/81AtEOlBwML._UF1000,1000_QL80_.jpg"
+    description: "A tragic on and off love story. The Weeknd's ignorance will make him the man he is today."
+    songs: ["Thursday", "The Zone", "The Birds Pt. 1"]
+  },
+  {
+    title: "Echos of Scilence",
+    year: 2011,
+    imageURL: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/The_Weeknd_-_Echoes_of_Silence.png/250px-The_Weeknd_-_Echoes_of_Silence.png"
+    description: "The final mixtape in what will be come the first trilogy of The Weeknd, transitioning from homeless Toronto boy, to his first steps as a super star."
+    songs: ["The Fall", "Echos of Scilence", "Til Dawn/(Here Comes the Sun)"]
+  },
+  {
+    title: "Kiss Land",
+    year: 2013,
+    imageURL: "https://www.slantmagazine.com/wp-content/uploads/2013/09/kissland.jpg"
+    description: "Kiss Land describes The Weeknd's reflection of himself as he tours the world for the first time."
+    songs: ["Belong to the World", "Kiss Land", "Pretty"]
+  },
+  {
+    title: "Beauty Behind the Maddness",
+    year: 2015,
+    imageURL: "https://media.pitchfork.com/photos/5929b065b1335d7bf169a0f0/master/pass/99bf5594.jpg"
+    description: "Popular for his hair and vocals like Michael Jackson. The album that made him mainstream."
+    songs: ["The Hills", "Can't Feel My Face", "In the Night"]
+  },
+  {
+    title: "Starboy",
+    year: 2016,
+    imageURL: "https://m.media-amazon.com/images/I/814htMhuuML._UF1000,1000_QL80_.jpg"
+    description: "A pop-infused album with electronic and funk elements. Proving he isn't a one hit wonder."
+    songs: ["Starboy", "Die For You", "I Feel It Coming"]
+  },
+  {
+    title: "After Hours",
+    year: 2020,
+    imageURL: "https://i.redd.it/yn81w7k64vh41.jpg"
+    description: "At the time, wasn't known to be the first of his final triology as The Weeknd. An 80's vibe representing pain and regret."
+    songs: ["Blinding Lights", "After Hours", "Save Your Tears"]
+  },
+  {
+    title: "Dawn FM",
+    year: 2022,
+    imageURL: "https://lastfm.freetls.fastly.net/i/u/ar0/7da8e979d89d285b5ddf44e64b92f16c.jpg"
+    description: "The second part of the final triology. Portraying false hope and unfulfilling promises to himself as he fades."
+    songs: ["Take My Breath", "Sacrifice", "Ot of Time"]
+  },
+  {
+    title: "Hurry Up Tommorow",
+    year: 2025,
+    imageURL: "https://fiu-original.b-cdn.net/fontsinuse.com/use-images/N248/248714/248714.jpeg?filename=Gil5wqYbgAAUFnU.jpg"
+    description: "The final chapter of this triolgy and final album of the Weeknd. Representing his acceptence of flaws and troubles he ahs faced his entire career."
+    songs: ["Cry For Me", "Timeless", "Take Me Back to LA"]
   },
 ]
-let titles = [
-  "Fresh Prince of Bel Air",
-  "Curb Your Enthusiasm",
-  "East Los High",
-];
+
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
 
@@ -54,34 +100,27 @@ function showCards() {
   const templateCard = document.querySelector(".card");
 
   for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
-
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
-    } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
-    } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
-    }
-
+    const album = albums[i];
+    
     const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
+    editCardContent(nextCard, album); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(card, album) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
 
-  const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+  //Update Title
+  const cardHeader = cardContent.querySelector("h2");
+  cardHeader.textContext = '${album.title} (${album.year})';
+
+  //Update Image
+  const cardImage = cardContent.querySelector("img");
+  cardImage.src = album.imageURL;
+  cardImage.alt = '${album.title} Album Cover';
 
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
@@ -95,7 +134,7 @@ document.addEventListener("DOMContentLoaded", showCards);
 function quoteAlert() {
   console.log("Button Clicked!");
   alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!"
+    "Until You're Used To My Face... And My Mystery Fades..."
   );
 }
 
