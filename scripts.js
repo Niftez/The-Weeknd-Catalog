@@ -1,11 +1,10 @@
-
-// This is an array of strings (Weeknd ALbums)
+// This is an array of albums
 let albums = [
   {
     title: "House of Ballons",
     year: 2011,
     imageURL: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/31/18/fa/3118fab0-90ea-2ae5-cf6c-bc64054ab9e3/21UMGIM21449.rgb.jpg/1200x1200bb.jpg",
-    description: "A debut mixtape blending R&B with a dark atmospheric vibe. The mystery behind The Weeknd will be uncovered. The story begins.",
+    description: "A debut mixtape blending R&B with a dark atmospheric vibe. The mystery behind The Weeknd will be uncovered. The, and the story begins.",
     songs: ["House of Balloons", "The Morning", "Twenty-Eight"]
   },
   {
@@ -19,7 +18,7 @@ let albums = [
     title: "Echos of Scilence",
     year: 2011,
     imageURL: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/The_Weeknd_-_Echoes_of_Silence.png/250px-The_Weeknd_-_Echoes_of_Silence.png",
-    description: "The final mixtape in what will be come the first trilogy of The Weeknd, transitioning from a homeless Toronto boy, to his first steps as a super star.",
+    description: "The final mixtape in what will be come the first trilogy of The Weeknd, transitioning from homeless Toronto boy, to his first steps as a super star.",
     songs: ["The Fall", "Echos of Scilence", "Til Dawn/(Here Comes the Sun)"]
   },
   {
@@ -58,15 +57,14 @@ let albums = [
     songs: ["Take My Breath", "Sacrifice", "Out of Time"]
   },
   {
-    title: "Hurry Up Tommorow",
+    title: "Hurry Up Tomorrow",
     year: 2025,
     imageURL: "https://fiu-original.b-cdn.net/fontsinuse.com/use-images/N248/248714/248714.jpeg?filename=Gil5wqYbgAAUFnU.jpg",
-    description: "The final chapter of this triolgy and final album of the Weeknd. Representing his acceptence of flaws and troubles he has faced his entire career.",
+    description: "The final chapter of this trilogy and final album of the Weeknd. Representing his acceptance of flaws and troubles he has faced his entire career.",
     songs: ["Cry For Me", "Timeless", "Take Me Back to LA"]
-  },
-]
+  }
+];
 
-// This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
@@ -82,19 +80,18 @@ function showCards() {
 
 function editCardContent(card, album) {
   card.style.display = "block";
-
   const cardContent = card.querySelector(".card-content");
-
-  //Update Title
+  
+  // Update Title
   const cardHeader = cardContent.querySelector("h2");
   cardHeader.textContent = `${album.title} (${album.year})`;
-
-  //Update Image
+  
+  // Update Image
   const cardImage = cardContent.querySelector("img");
   cardImage.src = album.imageURL;
   cardImage.alt = `${album.title} Album Cover`;
-
-  //Update Song List
+  
+  // Update Song List
   const cardList = cardContent.querySelector("ul");
   cardList.innerHTML = "";
   album.songs.forEach(song => {
@@ -102,43 +99,17 @@ function editCardContent(card, album) {
     li.textContent = song;
     cardList.appendChild(li);
   });
-
+  
+  // Update Description
   let description = cardContent.querySelector("p");
-  if (!description){
+  if (!description) {
     description = document.createElement("p");
     cardContent.insertBefore(description, cardList);
   }
   description.textContent = album.description;
-
-  console.log("new card:", album.title);
 }
 
-// This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
-
-function addNewAlbum() {
-  const title = prompt("Enter album title:");
-  const year = prompt("Enter release year:");
-  const imageURL = prompt("Enter image URL:");
-  const description = prompt("Enter description:");
-  const song1 = prompt("Enter song1:");
-  const song2 = prompt("Enter song2:");
-  const song3 = prompt("Enter song3:");
-
-  if (title && year && imageURL && description && song1 && song2 && song3) {
-    albums.push({
-      title: title,
-      year: parseInt(year),
-      imageURL: imageURL,
-      description: description,
-      songs: [song1, song2, song3]
-    });
-    showCards();
-  }
-  else {
-    alert("Please fill in all fields");
-  }
-}
 
 function quoteAlert() {
   alert(
@@ -155,9 +126,9 @@ function addNewAlbum() {
   const year = prompt("Enter release year:");
   const imageURL = prompt("Enter image URL:");
   const description = prompt("Enter description:");
-  const song1 = prompt("Enter song1:");
-  const song2 = prompt("Enter song2:");
-  const song3 = prompt("Enter song3:");
+  const song1 = prompt("Enter song 1:");
+  const song2 = prompt("Enter song 2:");
+  const song3 = prompt("Enter song 3:");
 
   if (title && year && imageURL && description && song1 && song2 && song3) {
     albums.push({
@@ -168,8 +139,7 @@ function addNewAlbum() {
       songs: [song1, song2, song3]
     });
     showCards();
-  }
-  else {
+  } else {
     alert("Please fill in all fields");
   }
 }
