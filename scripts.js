@@ -1,7 +1,7 @@
 // This is an array of albums
 let albums = [
   {
-    title: "House of Ballons",
+    title: "House of Balloons",
     year: 2011,
     imageURL: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/31/18/fa/3118fab0-90ea-2ae5-cf6c-bc64054ab9e3/21UMGIM21449.rgb.jpg/1200x1200bb.jpg",
     description: "A debut mixtape blending R&B with a dark atmospheric vibe. The mystery behind The Weeknd will be uncovered. The, and the story begins.",
@@ -15,11 +15,11 @@ let albums = [
     songs: ["Thursday", "The Zone", "The Birds Pt. 1"]
   },
   {
-    title: "Echos of Scilence",
+    title: "Echoes of Scilence",
     year: 2011,
     imageURL: "https://upload.wikimedia.org/wikipedia/en/thumb/3/34/The_Weeknd_-_Echoes_of_Silence.png/250px-The_Weeknd_-_Echoes_of_Silence.png",
     description: "The final mixtape in what will be come the first trilogy of The Weeknd, transitioning from homeless Toronto boy, to his first steps as a super star.",
-    songs: ["The Fall", "Echos of Scilence", "Til Dawn/(Here Comes the Sun)"]
+    songs: ["The Fall", "Echoes of Scilence", "Til Dawn/(Here Comes the Sun)"]
   },
   {
     title: "Kiss Land",
@@ -29,7 +29,7 @@ let albums = [
     songs: ["Belong to the World", "Kiss Land", "Pretty"]
   },
   {
-    title: "Beauty Behind the Maddness",
+    title: "Beauty Behind the Madness",
     year: 2015,
     imageURL: "https://media.pitchfork.com/photos/5929b065b1335d7bf169a0f0/master/pass/99bf5594.jpg",
     description: "Popular for his hair and vocals like Michael Jackson. The album that made him mainstream.",
@@ -67,8 +67,17 @@ let albums = [
 
 function showCards() {
   const cardContainer = document.getElementById("card-container");
+  if (!cardContainer) {
+    console.error("Card container not found.");
+    return;
+  }
+
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
+  if (!templateCard) {
+    console.error("Template card not found.");
+    return;
+  }
 
   for (let i = 0; i < albums.length; i++) {
     const album = albums[i];
@@ -130,18 +139,21 @@ function addNewAlbum() {
   const song2 = prompt("Enter song 2:");
   const song3 = prompt("Enter song 3:");
 
-  if (title && year && imageURL && description && song1 && song2 && song3) {
-    albums.push({
-      title: title,
-      year: parseInt(year),
-      imageURL: imageURL,
-      description: description,
-      songs: [song1, song2, song3]
-    });
-    showCards();
-  } else {
-    alert("Please fill in all fields");
+  // Validate inputs
+  if (!title || !year || isNaN(parseInt(year)) || !imageURL || !description || !song1 || !song2 || !song3) {
+    alert("Please provide valid inputs for all fields.");
+    return;
   }
+
+  albums.push({
+    title: title,
+    year: parseInt(year),
+    imageURL: imageURL,
+    description: description,
+    songs: [song1, song2, song3]
+  });
+
+  showCards();
 }
 
 function removeAlbum() {
