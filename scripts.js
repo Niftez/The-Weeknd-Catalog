@@ -111,7 +111,7 @@ function showCards() {
 function editCardContent(card, album) {
   card.style.display = "block";
 
-  const cardHeader = card.querySelector("h2");
+  const cardHeader = card.querySelector(".card-content");
 
   //Update Title
   const cardHeader = cardContent.querySelector("h2");
@@ -122,10 +122,25 @@ function editCardContent(card, album) {
   cardImage.src = album.imageURL;
   cardImage.alt = '${album.title} Album Cover';
 
+  //Update Song List
+  const cardList = cardContent.querySelector("ul")
+  cardLit.innerHTML = ""; //Clear exisiting list items
+  album.songs.forEach (song => {
+    const li = document.createMelement("li"):
+    li.textContent = song;
+    cardList.appendChild(li);
+  });
+
+  let description = cardContent.querySelector("p");
+  if (!description){
+    description = document.createElement("p");
+    cardContent.insertBefore(description, cardList);
+  }
+  description.textContent = album.description;
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
   // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
+  console.log("new card:", album.title);
 }
 
 // This calls the addCards() function when the page is first loaded
