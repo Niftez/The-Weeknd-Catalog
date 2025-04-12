@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
   showCards();
 });
 
+  //See Iconic Lyrics for The Weeknd
 function quoteAlert() {
   alert(
     "Until You're Used To My Face... And My Mystery Fades...\n\n" +
@@ -130,6 +131,7 @@ function quoteAlert() {
   );
 }
 
+//Add a New Album
 function addNewAlbum() {
   const title = prompt("Enter album title:");
   const year = prompt("Enter release year:");
@@ -153,6 +155,7 @@ function addNewAlbum() {
   }
 }
 
+//Remove Any Album
 function removeAlbum() {
   const title = prompt("Enter the title of the album to remove:");
   if (title) {
