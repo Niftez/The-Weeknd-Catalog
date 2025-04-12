@@ -157,3 +157,28 @@ function removeLastCard() {
   titles.pop(); // Remove last item in titles array
   showCards(); // Call showCards again to refresh
 }
+
+function addNewAlbum() {
+  const title = prompt("Enter album title:");
+  const year = prompt("Enter release year:");
+  const imageURL = prompt("Enter image URL:");
+  const description = prompt("Enter description:");
+  const song1 = prompt("Enter song1:");
+  const song2 = prompt("Enter song2:");
+  const song3 = prompt("Enter song3:");
+
+  if (title && year && imageURL && description && song1 && song2 && song3) {
+    albums.push({
+      title: title,
+      year: parseInt(year),
+      imageURL: imageURL,
+      description: description,
+      songs: [song1, song2, song3]
+    });
+    showCards();
+  }
+  else {
+    alert("Please fill in all fields");
+  }
+}
+
