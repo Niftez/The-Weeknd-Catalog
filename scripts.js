@@ -30,7 +30,15 @@ const CURB_POSTER_URL =
 const EAST_LOS_HIGH_POSTER_URL =
   "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
 
-// This is an array of strings (TV show titles)
+// This is an array of strings (Weeknd ALbums)
+let albums = [
+  {
+    title: "House of Ballons",
+    year: 2011,
+    imageURL: "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/31/18/fa/3118fab0-90ea-2ae5-cf6c-bc64054ab9e3/21UMGIM21449.rgb.jpg/1200x1200bb.jpg"
+    description: "A debut mixtape blending R&B with a dark atmospheric vibe. The mystery behind The Weeknd will be uncovered."
+  },
+]
 let titles = [
   "Fresh Prince of Bel Air",
   "Curb Your Enthusiasm",
