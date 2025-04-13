@@ -3,8 +3,8 @@ let albums = [
   {
     title: "House of Balloons",
     year: 2011,
-    imageURL: "https://via.placeholder.com/300?text=House+of+Balloons", // Placeholder for testing
-    description: "",
+    imageURL: "https://via.placeholder.com/300?text=House+of+Balloons", 
+    description: "Hello",
     songs: ["House of Balloons", "The Morning", "Twenty-Eight"]
   },
   {
