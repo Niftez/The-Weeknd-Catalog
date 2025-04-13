@@ -4,7 +4,7 @@ let albums = [
     title: "House of Balloons",
     year: 2011,
     imageURL: "https://via.placeholder.com/300?text=House+of+Balloons", // Placeholder for testing
-    description: "A debut mixtape blending R&B with a dark atmospheric vibe. The mystery behind The Weeknd will be uncovered.",
+    description: "A debut mixtape blending R&B with a dark atmospheric vibe. The mystery behind who The Weeknd is will be uncovered.",
     songs: ["House of Balloons", "The Morning", "Twenty-Eight"]
   },
   {
